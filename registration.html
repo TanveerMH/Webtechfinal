@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+
+  <script type="text/javascript" src="formcalculations.js"></script>
+  <link href="pform.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/Animate.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="home.css" media="all" />
+
+
+      <link rel="stylesheet" href="css/registration.css">
+
+
+</head>
+
+<body class="animate" onload='hideTotal()'>
+
+  <table style="border:0px solid black;margin-left:auto;margin-right:auto;">
+    <tr>
+      <td>
+        <div class="form_wrapper">
+        <div class="form_container">
+          <div class="title_container">
+            <h2>Registration Form</h2>
+          </div>
+          <div class="row clearfix">
+            <div class="">
+              <form>
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                  <input type="email" name="email" placeholder="Email" required />
+                </div>
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                  <input type="password" name="password" placeholder="Password" required />
+                </div>
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                  <input type="password" name="password" placeholder="Re-type Password" required />
+                </div>
+                <div class="row clearfix">
+                  <div class="col_half">
+                    <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                      <input type="text" name="name" placeholder="First Name" />
+                    </div>
+                  </div>
+                  <div class="col_half">
+                    <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                      <input type="text" name="Name" placeholder="Last Name" required />
+                    </div>
+                  </div>
+                </div>
+
+                  	<div class="input_field radio_option">
+                    <input type="radio" name="radiogroup1" id="rd1">
+                    <label for="rd1">Conference</label>
+                    <input type="radio" name="radiogroup1" id="rd2">
+                    <label for="rd2">Workshop</label>
+                    </div>
+
+                    <h4>Payment</h4>
+                    <div class="input_field select_option">
+                      <select>
+                        <option>Select Card</option>
+                        <option>Credit card</option>
+                        <option>Debit Account</option>
+
+                      </select>
+
+                      <div class="select_arrow"></div>
+                    </div>
+      			<div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input type="email" name="email" placeholder="Owner" required />
+                </div>
+      		    <div class="col_half">
+                   <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                      <input type="text" name="Name" placeholder="Card number" required />
+                    </div>
+                  </div>
+      			  <div class="col_half">
+                    <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                      <input type="text" name="Name" placeholder="CVV" required />
+                    </div>
+                  </div>
+
+
+                          <div class="form-group" id="expiration-date">
+                              <label>Expiration Date</label>
+                              <select>
+                                  <option value="01">January</option>
+                                  <option value="02">February </option>
+                                  <option value="03">March</option>
+                                  <option value="04">April</option>
+                                  <option value="05">May</option>
+                                  <option value="06">June</option>
+                                  <option value="07">July</option>
+                                  <option value="08">August</option>
+                                  <option value="09">September</option>
+                                  <option value="10">October</option>
+                                  <option value="11">November</option>
+                                  <option value="12">December</option>
+                              </select>
+                              <select>
+                                  <option value="16"> 2019</option>
+                                  <option value="17"> 2020</option>
+                                  <option value="18"> 2021</option>
+                                  <option value="19"> 2022</option>
+                                  <option value="20"> 2023</option>
+                                  <option value="21"> 2024</option>
+                              </select>
+                          </div>
+      					<br>
+                          <div class="form-group" id="credit_cards">
+                              <img src="visa.jpg" id="visa">
+                              <img src="mastercard.jpg" id="mastercard">
+                              <img src="amex.jpg" id="amex">
+                          </div>
+      					<br>
+                          </div>
+                  <div class="input_field checkbox_option">
+                  	<input type="checkbox" id="cb1">
+          			<label for="cb1">I agree with terms and conditions</label>
+                  </div>
+                  <div class="input_field checkbox_option">
+                  	<input type="checkbox" id="cb2">
+          			<label for="cb2">I want to receive the newsletter</label>
+                  </div>
+                <input class="button" type="submit" value="Register" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <script src='https://use.fontawesome.com/4ecc3dbb0b.js'></script>
+      </td>
+
+      <td>
+        <div id="wrap">
+            <form action="" id="pform" onsubmit="return false;">
+            <div>
+                <div class="cont_order">
+                  <br>
+                  <h1 align="center">Payment Calculator</h1>
+                  <br>
+                   <fieldset>
+                    <br/>
+                    <label >Participant</label>
+
+                    <select name="selectedChoice" id="choosing" name='choosing' onchange="calculateTotal()">
+                    <option value="None">Select Participant</option>
+                    <option value="int">International Participant</option>
+                    <option value="local">Local Participant</option>
+                   </select>
+                    <br/>
+                    <p>
+    				<br>
+    				<label>Select type of Registration:</label>
+    				<br>
+                    <label for='includeCpp' class="inlinelabel">Conference Paper Presenter</label>
+                   <input type="checkbox" id="includeCpp" name='includeCpp' onclick="calculateTotal()" />
+                   </p>
+                    <p>
+                    <label class="inlinelabel" for='includeSp'>Student Presenter</label>
+                    <input type="checkbox" id="includeSp" name="includeSp" onclick="calculateTotal()" />
+                    </p>
+    				<p>
+                    <label class="inlinelabel" for='includepwp'>Participant (without papers)</label>
+                    <input type="checkbox" id="includepwp" name="includepwp" onclick="calculateTotal()" />
+                    </p>
+                    <div id="totalPrice"></div>
+                    </fieldset>
+                </div>
+      </td>
+    </tr>
+  </table>
+
+
+
+
+</body>
+
+</html>
